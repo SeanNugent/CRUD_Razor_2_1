@@ -8,11 +8,37 @@
 <h2>Book List</h2>
 <br />
 
-<a asp-page="Create" class="btn btn-primary">Create New Book</a>
+<a asp-page="Create" class="btn btn-primary" style="margin-bottom: 10px;">Create New Book</a>
 
 @if (Model.Books.Count() > 0)
 {
-    <div>Books Available</div>
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.Books.FirstOrDefault().Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Books.FirstOrDefault().Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Books.FirstOrDefault().ISBN)
+            </th>
+        </tr>
+        @foreach(var book in Model.Books)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(m => book.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(m => book.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(m => book.ISBN)
+            </td>
+        </tr>
+        }
+    </table>
 }
 else
 {
