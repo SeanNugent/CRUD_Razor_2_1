@@ -1,0 +1,20 @@
+﻿@page
+@model CRUD_Razor_2_1.Pages.BookList.IndexModel
+@{
+    ViewData["Title"] = "Book List - Index";
+}
+
+<br />
+<h2>Book List</h2>
+<br />
+
+<a asp-page="Create" class="btn btn-primary">Create New Book</a>
+
+@if (Model.Books.Count() > 0)
+{
+    <div>Books Available</div>
+}
+else
+{
+    <div>No Books in Database</div>
+}
